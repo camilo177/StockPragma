@@ -1,7 +1,7 @@
 package com.bootcamp.stock.infraestructure;
 
 import com.bootcamp.stock.application.MarcaService;
-import com.bootcamp.stock.domain.Marca;
+import com.bootcamp.stock.domain.model.Marca;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

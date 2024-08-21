@@ -1,7 +1,7 @@
 package com.bootcamp.stock.infraestructure;
 
 import com.bootcamp.stock.application.CategoriaService;
-import com.bootcamp.stock.domain.Categoria;
+import com.bootcamp.stock.domain.model.Categoria;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

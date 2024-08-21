@@ -1,4 +1,4 @@
-package com.bootcamp.stock.domain;
+package com.bootcamp.stock.domain.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

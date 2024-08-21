@@ -1,4 +1,4 @@
-package com.bootcamp.stock.domain;
+package com.bootcamp.stock.domain.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

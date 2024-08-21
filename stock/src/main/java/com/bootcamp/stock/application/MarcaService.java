@@ -1,7 +1,7 @@
 package com.bootcamp.stock.application;
 
-import com.bootcamp.stock.domain.Marca;
-import com.bootcamp.stock.domain.MarcaRepository;
+import com.bootcamp.stock.domain.model.Marca;
+import com.bootcamp.stock.domain.api.iMarcaServicePort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,9 +9,9 @@ import java.util.Optional;
 
 @Service
 public class MarcaService {
-    private final MarcaRepository marcaRepository;
+    private final iMarcaServicePort marcaRepository;
 
-    public MarcaService(MarcaRepository marcaRepository) {
+    public MarcaService(iMarcaServicePort marcaRepository) {
         this.marcaRepository = marcaRepository;
     }
 

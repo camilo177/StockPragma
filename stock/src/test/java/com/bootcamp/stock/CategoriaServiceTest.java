@@ -1,16 +1,13 @@
 package com.bootcamp.stock;
 
-import com.bootcamp.stock.domain.Categoria;
-import com.bootcamp.stock.domain.CategoriaRepository;
+import com.bootcamp.stock.domain.model.Categoria;
+import com.bootcamp.stock.domain.api.iCategoriaServicePort;
 import com.bootcamp.stock.application.CategoriaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
@@ -19,7 +16,7 @@ import static org.mockito.Mockito.when;
 public class CategoriaServiceTest {
 
     @Mock
-    private CategoriaRepository categoriaRepository;
+    private iCategoriaServicePort iCategoriaServicePort;
 
     @InjectMocks
     private CategoriaService categoriaService;
@@ -36,7 +33,7 @@ public class CategoriaServiceTest {
         categoria.setName("Electronics");
         categoria.setDescription("All electronic items");
 
-        when(categoriaRepository.save(any(Categoria.class))).thenReturn(categoria);
+        when(icategoriaS.save(any(Categoria.class))).thenReturn(categoria);
 
         Categoria createdCategoria = categoriaService.save(categoria);
 

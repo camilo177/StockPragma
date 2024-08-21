@@ -1,7 +1,7 @@
 package com.bootcamp.stock.application;
 
-import com.bootcamp.stock.domain.Categoria;
-import com.bootcamp.stock.domain.CategoriaRepository;
+import com.bootcamp.stock.domain.model.Categoria;
+import com.bootcamp.stock.domain.api.iCategoriaServicePort;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -15,7 +15,7 @@ import java.util.Optional;
 public class CategoriaService {
 
     @Autowired
-    private CategoriaRepository categoriaRepository;
+    private iCategoriaServicePort categoriaRepository;
 
     public Categoria save(@NotNull Categoria categoria) {
         Optional<Categoria> existingCategoria = categoriaRepository.findByName(categoria.getName());

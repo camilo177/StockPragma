@@ -2,23 +2,18 @@ package com.bootcamp.stock.domain.usecase;
 
 import com.bootcamp.stock.domain.api.iMarcaServicePort;
 import com.bootcamp.stock.domain.model.Marca;
-
-import java.util.List;
-import java.util.Optional;
+import com.bootcamp.stock.domain.spi.iMarcaPersistencePort;
 
 public class MarcaUseCase implements iMarcaServicePort {
-    @Override
-    public Marca save(Marca marca) {
-        return null;
+    private final iMarcaPersistencePort marcaPersistencePort;
+
+    public MarcaUseCase(iMarcaPersistencePort marcaPersistencePort) {
+        this.marcaPersistencePort = marcaPersistencePort;
     }
 
-    @Override
-    public Optional<Marca> findByName(String name) {
-        return Optional.empty();
-    }
 
     @Override
-    public List<Marca> findAll(int page, int size, String sort) {
-        return null;
+    public void saveMarca(Marca marca) {
+        marcaPersistencePort.saveMarca(marca);
     }
 }

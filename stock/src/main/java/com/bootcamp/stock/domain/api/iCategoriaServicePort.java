@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface iCategoriaServicePort {
 
-    Categoria save(Categoria categoria);
+    void saveCategoria(Categoria categoria);
     Optional<Categoria> findByName(String name);
     List<Categoria> findAll(int page, int size, String sort);
 

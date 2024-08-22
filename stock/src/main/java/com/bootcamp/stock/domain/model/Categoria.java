@@ -18,12 +18,12 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Name cannot be blank")
-    @Size(max = 50, message = "Name must be up to 50 characters")
-    @Column(unique=true)
+    //@NotBlank(message = "Name cannot be blank")
+    //@Size(max = 50, message = "Name must be up to 50 characters")
+    //@Column(unique=true)
     private String name;
 
-    @NotBlank(message = "Description cannot be blank")
-    @Size(max = 90, message = "Description must be up to 90 characters")
+    //@NotBlank(message = "Description cannot be blank")
+    //@Size(max = 90, message = "Description must be up to 90 characters")
     private String description;
 }

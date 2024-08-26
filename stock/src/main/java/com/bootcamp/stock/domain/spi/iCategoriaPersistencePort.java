@@ -7,8 +7,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface iCategoriaPersistencePort extends JpaRepository<Categoria, Long> {
+public interface iCategoriaPersistencePort {
     void saveCategoria(Categoria categoria);
     Optional<Categoria> findByName(String name);
-    List<Categoria> findAll(int page, int size, String sort);
+    List<Categoria> findAll();
 }

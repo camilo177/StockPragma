@@ -5,7 +5,7 @@ import com.bootcamp.stock.domain.model.Marca;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface MarcaRequestMapper {
 
     MarcaRequestMapper INSTANCE = Mappers.getMapper(MarcaRequestMapper.class);

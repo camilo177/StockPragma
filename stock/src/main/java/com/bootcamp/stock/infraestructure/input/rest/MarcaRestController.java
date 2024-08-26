@@ -1,5 +1,6 @@
 package com.bootcamp.stock.infraestructure.input.rest;
 
+import com.bootcamp.stock.application.dto.CategoriaResponse;
 import com.bootcamp.stock.application.dto.MarcaRequest;
 import com.bootcamp.stock.application.dto.MarcaResponse;
 import com.bootcamp.stock.application.handler.iMarcaHandler;
@@ -10,6 +11,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/marcas")
@@ -27,5 +30,19 @@ public class MarcaRestController {
     public ResponseEntity<MarcaResponse> createMarca(@RequestBody MarcaRequest marcaRequest) {
         MarcaResponse savedMarca = marcaHandler.saveMarca(marcaRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(savedMarca);
+    }
+
+    @Operation(summary = "List all Marcas")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "All Marcas returned"),
+            @ApiResponse(responseCode = "404", description = "No data found")
+    })
+    @GetMapping
+    public ResponseEntity<List<MarcaResponse>> listMarcas(
+            @RequestParam(defaultValue = "asc") String sortDirection,
+            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "10") int size) {
+        List<MarcaResponse> marcas = marcaHandler.listMarcas();
+        return ResponseEntity.ok(marcas);
     }
 }

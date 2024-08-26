@@ -5,10 +5,13 @@ import com.bootcamp.stock.application.dto.MarcaResponse;
 import com.bootcamp.stock.application.mapper.MarcaRequestMapper;
 import com.bootcamp.stock.application.mapper.MarcaResponseMapper;
 import com.bootcamp.stock.domain.api.iMarcaServicePort;
+import com.bootcamp.stock.domain.model.Categoria;
 import com.bootcamp.stock.domain.model.Marca;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -30,4 +33,22 @@ public class MarcaHandler implements iMarcaHandler {
         // Convert the saved Marca entity to MarcaResponse DTO
         return marcaResponseMapper.toMarcaResponse(marca);
     }
+
+    @Override
+    public MarcaResponse getMarcaById(Long id) {
+        // Retrieve the Marca entity by ID and map it to the MarcaResponse DTO
+        Marca marca = marcaServicePort.findAll().stream()
+                .filter(cat -> cat.getId().equals(id))
+                .findFirst()
+                .orElse(null);
+        return marcaResponseMapper.toMarcaResponse(marca);
+    }
+
+    @Override
+    public List<MarcaResponse> listMarcas() {
+        // Retrieve all Marca entities and map them to Marca DTOs
+        List<Marca> marcas = marcaServicePort.findAll();
+        return marcas.stream()
+                .map(marcaResponseMapper::toMarcaResponse)
+                .toList();    }
 }

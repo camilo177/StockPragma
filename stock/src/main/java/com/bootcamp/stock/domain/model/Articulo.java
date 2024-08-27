@@ -1,10 +1,15 @@
 package com.bootcamp.stock.domain.model;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import lombok.*;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -12,7 +17,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class Categoria {
+public class Articulo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,4 +31,8 @@ public class Categoria {
     //@NotBlank(message = "Description cannot be blank")
     //@Size(max = 90, message = "Description must be up to 90 characters")
     private String description;
+
+    private Integer quantity;
+
+    private BigDecimal price;
 }

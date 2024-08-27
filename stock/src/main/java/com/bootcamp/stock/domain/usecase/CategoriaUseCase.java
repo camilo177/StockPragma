@@ -17,17 +17,21 @@ public class CategoriaUseCase implements iCategoriaServicePort {
     }
 
     @Override
-    public Categoria save(Categoria categoria) {
-        categoriaPersistencePort.save(categoria);
+    public Categoria saveCategoria(Categoria categoria) {
+        categoriaPersistencePort.saveCategoria(categoria);
+        return categoria;
     }
 
     @Override
     public Optional<Categoria> findByName(String name) {
-        return Optional.empty();
+        return categoriaPersistencePort.findByName(name);
     }
 
+
+
     @Override
-    public List<Categoria> findAll(int page, int size, String sort) {
-        return null;
+    public List<Categoria> findAll() {
+
+        return categoriaPersistencePort.findAll();
     }
 }

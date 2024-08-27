@@ -2,7 +2,6 @@ package com.bootcamp.stock;
 
 import com.bootcamp.stock.domain.model.Categoria;
 import com.bootcamp.stock.domain.api.iCategoriaServicePort;
-import com.bootcamp.stock.application.CategoriaService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
